@@ -4,6 +4,8 @@ An agent-only GTM demo built with OpenComputer, Exa, Composio, and Apify. It run
 OpenComputer debug playground and through code-defined schedules; there is no
 separate frontend.
 
+[Deploy to OpenComputer →](https://app.opencomputer.dev/new?repository-url=https%3A%2F%2Fgithub.com%2Fdiggerhq%2Fopencomputer-example-gtm)
+
 The agent covers social opportunity discovery, social-content ideation,
 blog-topic research, public-evidence outreach prospecting, and strategy review
 for one seeded campaign. Research is read-only. Its sole write path creates a
