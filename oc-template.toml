@@ -1,0 +1,22 @@
+schema = 1
+
+[template]
+name = "GTM Engineer"
+description = "Research growth opportunities and prepare explicitly approved Notion drafts."
+documentation = "https://docs.opencomputer.dev/agents/examples/gtm-engineer"
+default_project_name = "gtm-engineer"
+
+[template.first_run]
+agent = "gtm-engineer"
+prompt = "Run the social opportunity discovery tick for agent-harness-demo."
+
+[template.secrets.EXA_API_KEY]
+description = "Exa API key required for the default research workflow."
+
+[template.secrets.COMPOSIO_API_KEY]
+description = "Composio project API key for optional connected-account workflows."
+required = false
+
+[template.secrets.APIFY_API_TOKEN]
+description = "Apify API token for optional reviewed Actor tasks."
+required = false
