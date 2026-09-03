@@ -14,9 +14,7 @@ prompt = "Run the social opportunity discovery tick for agent-harness-demo."
 description = "Exa API key required for the default research workflow."
 
 [template.secrets.COMPOSIO_API_KEY]
-description = "Composio project API key for optional connected-account workflows."
-required = false
+description = "Composio project API key for connected-account workflows."
 
 [template.secrets.APIFY_API_TOKEN]
-description = "Apify API token for optional reviewed Actor tasks."
-required = false
+description = "Apify API token for reviewed Actor tasks."
