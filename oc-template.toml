@@ -13,8 +13,17 @@ prompt = "Run the social opportunity discovery tick for agent-harness-demo."
 [template.secrets.EXA_API_KEY]
 description = "Exa API key required for the default research workflow."
 
-[template.secrets.COMPOSIO_API_KEY]
-description = "Composio project API key for connected-account workflows."
-
 [template.secrets.APIFY_API_TOKEN]
 description = "Apify API token for reviewed Actor tasks."
+
+[template.connections.github]
+description = "Optional: read recent pull requests and commits as content topics."
+required = false
+
+[template.connections.notion]
+description = "Optional: read campaign pages and create explicitly approved drafts."
+required = false
+
+[template.connections.searchconsole]
+description = "Optional: read your site's search queries and page performance."
+required = false
