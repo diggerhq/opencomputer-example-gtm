@@ -11,10 +11,10 @@
     "deploy": "opencomputer deploy"
   },
   "dependencies": {
-    "@opencomputer/agent": "^0.5.1"
+    "@opencomputer/agent": "^0.7.5"
   },
   "devDependencies": {
-    "@opencomputer/cli": "^0.7.5",
+    "@opencomputer/cli": "^0.7.12",
     "@types/node": "^24.0.0",
     "typescript": "^5.9.0"
   }

@@ -1,6 +1,6 @@
 ---
 name: gtm-integrations
-description: Safely combine optional Composio connected accounts and bounded Apify harvests with the GTM workflows, including provider availability, read/write boundaries, and explicit opt-in configuration.
+description: Safely combine optional connected GitHub, Notion, and Search Console accounts and bounded Apify harvests with the GTM workflows, including provider availability, read/write boundaries, and explicit opt-in configuration.
 ---
 
 # GTM integrations
@@ -9,34 +9,31 @@ The default workflow uses Exa. Optional providers run only when their required
 identifier is present in trusted structured input or an explicit user-authored
 manual request.
 
-## Composio
+## Connected accounts
 
-`composio_user_id` selects one stable connected-account identity.
+GitHub, Notion, and Google Search Console are connected to the deployment with
+one-click OAuth; the agent never sees their tokens. Use them only when the
+payload `providers` list names them or a user-authored message asks for them.
 
-1. Call `composio_connected_accounts` before relying on a toolkit.
-2. Call `composio_search_tools` for the exact current read operation.
-3. Inspect its structured input schema.
-4. Call `composio_read` with explicit arguments.
-5. Report missing, expired, or ambiguous accounts and continue with remaining
+1. Call `connected_accounts` before relying on a provider.
+2. Use the provider's read tool with explicit arguments:
+   `github_recent_work`, `notion_search`, `notion_read`,
+   `search_console_sites`, `search_console_query`.
+3. Report missing, expired, or unavailable accounts and continue with remaining
    providers.
 
-`composio_read` permits only read-like operations from Notion, GitHub, and
-Google Search Console. Do not try to route a write through it.
-
-The only connected-account write is `composio_create_notion_draft`. Use it only
-when all of the following are true:
+The platform allows only read routes for GitHub and Search Console. The only
+connected-account write is `notion_create_draft`. Use it only when all of the
+following are true:
 
 - the current input source is `user`;
 - the user separately says `create approved Notion draft`;
 - the exact draft was shown earlier in this session;
-- the implementation-pinned Composio operation creates only a new Notion page;
+- the parent page was shared with the Notion connection;
 - the arguments preserve the approved text without silent additions.
 
-The caller does not choose the write slug. The tool pins
-`NOTION_CREATE_NOTION_PAGE` and resolves only its latest version.
-
-Return the created page identifier or URL. Creating a Notion draft is not
-publication approval.
+The tool creates only a new child page. Return the created page identifier or
+URL. Creating a Notion draft is not publication approval.
 
 ## Apify
 
